@@ -1,0 +1,6 @@
+Multimedia:
+1)Cum adaug din cod o noua linie in tabel
+2) cum modificam proprietatile css ale unei imagini
+3) cum interschimbam din cod imaginile la apasarea unui  buton
+4)cum schimbam pozitia de pe ecran a unui tag la apasarea unui buton
+5)cum modificam dimensiunile unui buton la un anumit eveniment(click pe el, alt eveniment)
