@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Cerinta 2: Modificarea unei poze</title>
+        <style>
+                h1 {
+                    text-align: center;
+
+                }
+                img {
+                    width: 700px;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                div {
+                    margin-top: 10px;
+                }
+                #outer{
+                    width: 100%;
+                    text-align: center;
+                }
+                .inner{
+                    display: inline-block;
+                }
+                #button, #buton1{
+                    background-color: teal;
+                    color: white;
+                    border: none;
+                    padding: 10px 27px;
+                    text-align: center;
+                    text-decoration: solid;
+                    font-size: 15px;
+                    margin-top: 20px;
+                    margin:auto;
+                    display: block;
+                }
+                 
+        </style>
+    </head>
+    <body>
+        <h1>Cerinta 2: Modificarea propietatilor CSS ale unei poze prin apasarea unui buton</h1>
+        <h1>Cerinta 3: Interschimbarea pozelor prin apasarea unui buton</h1>
+
+        <script>
+            function toggleImage() {
+               var img1 = "https://hub.packtpub.com/wp-content/uploads/2018/05/programming-696x464.jpg";
+               var img2 = "https://images.pexels.com/photos/247791/pexels-photo-247791.png?auto=compress&cs=tinysrgb&dpr=1&w=500";
+               
+               var imgElement = document.getElementById('toggleImage');
+            
+               imgElement.src = (imgElement.src === img1)? img2 : img1;
+            }
+            
+            </script>
+            <script>
+                function borderImagine() {
+                    var cssElement = document.getElementById('toggleImage');
+                    cssElement.style.border="10px solid red";
+                    
+                    cssElement.style.opacity="0.2";
+            }
+            </script>
+            <img src="https://images.pexels.com/photos/247791/pexels-photo-247791.png?auto=compress&cs=tinysrgb&dpr=1&w=500" id="toggleImage" onclick="toggleImage()"/>
+                <div id="outer">
+                    <div class="inner"><button  id="button" onclick="borderImagine();">Modificare CSS poza</button></div>
+                    <div class="inner"><button id="buton1" onclick="toggleImage()">Interschimbare poza</button></div>
+                </div>
+
+</html>

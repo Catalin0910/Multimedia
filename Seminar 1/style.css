@@ -1,0 +1,93 @@
+
+p, h1, h2 {
+    border: 2px solid blue;
+}
+#headingul1 {
+    color: rgb(255, 255, 0)
+}
+.clasamea {
+    background-color: #000000;
+    color: #F33F73;
+}
+h2 {
+    
+    background-color: #000000;
+    color: #F33F73;
+}
+
+a:visited {
+    background-color: rgb(100, 100,100);
+    color: #F33FA0;
+}
+a:active {
+    color: #F00000;
+}
+a:hover {color: #00FFFF}
+/*td {
+    border: 2px solid red;
+}*/
+table tr:nth-child(even) {
+    background-color: rgb(200, 200, 200);
+}
+tr:nth-child(2n+1) {
+    background-color: rgb(0,0, 255);
+}
+td:nth-child(2n+1) {
+    background-color: rgb(0,0, 255);
+}
+/*tr:nth-child(even) {
+
+}
+tr:nth-child(odd) {
+
+}*/
+img {
+    opacity: 0.3;
+}
+
+img:hover {
+    opacity: 1;
+}
+h1 {
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+#idh1modificat {
+    font-size: 26px;
+}
+h1 {
+    font-size: 21px;
+}
+#test{
+    font-size: 20px;
+}
+.test {
+    font-size:10px
+    
+}
+/*body {
+    background-image: url("poza.jpg");
+    background-color: #cccccc;
+   }*/
+
+   #tabeltask {
+       width: 100%;
+   }
+
+  td:nth-child(even) {
+       text-align: left;
+       background-image: url(poza.jpg);
+       color: white;
+    } 
+   table {
+        border-left:2px dotted green;
+        border-right: 2px solid black;
+        border-top:2px solid pink;
+        border-bottom: 2px solid yellow;
+    }
+   
+  td:nth-child(odd) {
+       text-align: right;
+   }
+   

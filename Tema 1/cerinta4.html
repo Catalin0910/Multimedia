@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1 {
+                text-align: center;
+                color: blue;
+            }
+            img {
+                width: 700px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #outer{
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+            .inner{
+                display: inline-block;
+                background-color: teal;
+                border: none;
+                color: white;
+                padding: 15px 30px;
+                text-align: center;
+                font-size: 15px;
+                text-decoration: solid;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Cerinta 4: Modificarea pozitie unui tag la apasarea unui buton</h1>
+        <img id="photo" src="poza4.jpg" >
+        <div id="outer">
+            <button class="inner" id='button1' onclick="moveRight()">Muta poza</button>
+            <button class="inner" id='button2'>Resetare</button>
+        </div>
+        <script>
+           var imgObj = null;
+             function init(){
+               imgObj = document.getElementById('photo');
+               imgObj.style.position= 'relative';
+               imgObj.style.left = '0px';
+            }   
+            function moveRight(){
+               imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+            }
+            window.onload =init;
+            var button2 = document.getElementById('button2');
+             button2.onclick= reloadPage;
+
+    function reloadPage(){
+        window.location.reload();
+    }
+        </script>
+    </body>
+    
+</html>

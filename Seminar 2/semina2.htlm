@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+        <body>
+            <h1 title="Seminarul de Multimedia">Multimedia</h1>
+            <h2>Curs</h2>
+            <h2>Seminar</h2>
+            <h3>Seminar 1</h3>
+            <p>Continut seminar  
+                <a href="https://www.pexels.com/ro-ro/"> 
+                 <img alt="imagine cu multimedia"  title="poza de la munte" src="https://www.w3schools.com/images/picture.jpg" 
+                 width="180" height="140"> 
+                </a>  de unde puteti descarca ce poze doriti.
+            </p>
+            <table style="width: 100% ; border: 1px solid black;">
+                <thead>
+                    <tr>
+                        <th>Coloana 1</th>
+                        <th>Coloana 2</th>
+                        <th>Coloana 3</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td> <img src="https://www.w3schools.com/images/picture.jpg" width="180" height="140"> celula 1.1</td>
+                    <td style="border: 1px solid black;">celula 1.2</td>
+                    <td style="border: 1px solid black;">celula 1.3</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black;">celula 2.1</td>
+                    <td style="border: 1px solid black;">celula 2.2</td>
+                    <td style="border: 1px solid black;">celula 2.3</td>
+                </tr>
+            </table>
+            <p>Lista ordonata</p>
+            <ol>
+                <li>Elementul 1</li>
+                <li>Elementul 2</li>
+                <li>Elementul 3</li>
+            </ol>
+            <p>Lista neordonata</p>
+            <ul>
+                <li>Elementul 1</li>
+                <li>Elementul 2</li>
+                <li>Elementul 3</li>
+            </ul>
+            <p>Lista descriptiva (sunt perechi de taguri dt - description title si dd - description date)</p>
+            <dl>
+                <dt>"Aici se scrie titlul"</dt>
+                <dd>"Aici se punea descrierea</dd>
+                <dt>Elementul 1</dt>
+                <dd>Continut elementul 1</dd>
+                <dt>Elementul 2</dt>
+                <dd>Continut elementul 2</dd>
+            </dl>
+            
+            <video controls>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/w1Zlu7K4OTM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <source src="movie.ogg" type="video/ogg">
+            </video>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/w1Zlu7K4OTM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </body>
+</html>

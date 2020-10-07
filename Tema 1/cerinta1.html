@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            p {
+                text-align: center;
+                color: red;
+                font-size: 30px;
+            }
+           table, td{
+               font-size: 30px;
+               border: 2px solid blue ;
+                align-items: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .d {
+                text-align: center;
+            }
+            .butonel {
+              margin:auto;
+              display:block;
+              background-color: #000066;
+              border: none;
+              color: white;
+              padding: 15px 32px;
+              text-align: center;
+              text-decoration: none;
+              font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Pentru a aduga randuri noi in tabel apasa butonul!!!</p>
+        <table id="tabel1">
+            <tr>
+                <td>tabel 1.1</td>
+                <td>tabel 1.2</td>
+            </tr>
+            <tr>
+                <td>tabel 2.1</td>
+                <td>tabel 2.2</td>
+            </tr>
+            <tr>
+                <td>tabel 3.1</td>
+                <td>tabel 3.2</td>
+            </tr>
+        </table>
+        <br>
+        <div class="d">
+            <button class ="butonel" type="button" onclick="myFunction()">Haide, apasă-mă</button>
+        </div>
+        
+        <script>
+            function myFunction() {
+            var table = document.getElementById("tabel1");
+            var row = table.insertRow(0);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            cell1.innerHTML = "Nou 1";
+            cell2.innerHTML = "Nou 2";
+            }
+
+        </script>
+    </body>
+</html>
