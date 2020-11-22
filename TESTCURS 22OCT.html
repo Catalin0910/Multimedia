@@ -1,0 +1,64 @@
+<!DOCTYPE>
+<html>
+	<head>
+	</head>
+	
+	<body>
+	
+	<canvas width=300 height=300 id="canvas1"></canvas>	
+		<button type="button" id="buton1">IMG=>Canvas</button>
+		<button type="button" id="buton2"> Canvas=>imagine</button>	
+	<script>
+	
+	var canvas1=document.getElementById("canvas1");
+	var context1=canvas1.getContext("2d");
+
+function desenare()
+{
+	context1.fillStyle="#D0D0D0";
+	context1.fillRect(0,0,300,300);
+	
+	context1.shadowBlur=5;
+	context1.shadowColor="#0000F0";
+	context1.shadowOffsetX=-5;
+	context1.shadowOffsetY=5;
+	context1.fillStyle="#F00000";
+	context1.fillRect(130,130,40,40);
+}	
+desenare();
+	var theta=0.3;
+	
+	function rotire (context,x,y)
+	{
+		ct=Math.cos(theta);
+		st=Math.sin(theta);
+		context.transform(ct,-st,st,ct,-x*ct-y*st+x,x*st-y*ct+y);
+		context.clearRect(0,0,300,300);
+		desenare();
+	}
+	
+	canvas1.addEventListener("click",function () {rotire (context1,0,0);});
+
+		function incarcaimg()
+		{
+			var img= new Image();
+			img.src="img1.jpg";
+			context1.drawImage(img,0,0);
+		
+		}
+		document.getElementById("buton1").addEventListener("click",incarcaimg);
+		
+		function creazaimg()
+		{
+		var img2 = document.createElement("img");
+		img2.src=canvas1.toDataURL();
+		document.body.appendChild(img2);
+		}
+		document.getElementById("buton2").addEventListener("click",creazaimg);		
+		
+	</script>
+	
+	</body>
+
+
+</html>

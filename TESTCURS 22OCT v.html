@@ -1,0 +1,62 @@
+<!DOCTYPE>
+<html>
+	<head>
+	</head>
+	
+	<body>
+	
+	<canvas width=300 height=300 id="canvas1"></canvas>	
+	<script>
+	
+	var canvas1=document.getElementById("canvas1");
+	var context1=canvas1.getContext("2d");
+	
+		function setPixel (imageData,x,y,r,g,b,a)
+		{
+		index= y*imageData.width*4+x*4;
+		imageData.data[index+0]=r;
+		imageData.data[index+1]=g;
+		imageData.data[index+2]=b;
+		imageData.data[index+3]=a;				
+		}
+
+	
+	
+	width=canvas1.width;
+	height=canvas1.height;
+	
+	imageData=context1.createImageData(width,height);
+	desenare();
+	function desenare ()
+	{
+	for (i=0;i<90000;i=i+1)
+	{
+		r=Math.random()*256|0;
+		g=Math.random()*256|0;	
+		b=Math.random()*256|0;		
+		y=i/width|0;
+		x= i-y;
+		setPixel(imageData,x,y,r,g,b,255)
+	}
+	context1.putImageData(imageData,0,0);
+	}
+	var status1=false;
+	var interval;
+	canvas1.onmousedown= function (evt)
+		{
+
+			if (evt.button==0) desenare()
+			else if (evt.button==2)
+				{	console.log (status1);	
+				if (status1)
+				{window.clearInterval(interval);
+				status1=false;}
+				else {interval=setInterval(desenare,100);status1=true;
+				}
+				}
+				}
+	canvas1.oncontextmenu = function() {    return false;}
+	</script>
+	
+	</body>
+</html>

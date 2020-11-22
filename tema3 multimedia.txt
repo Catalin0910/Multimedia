@@ -1,0 +1,3 @@
+intr-un singur canvas:
+imagine peste imagine in canvas (picture in picture) aia mica cu chenar
+la imaginea mai mica de adaugat culoare (rosu, verde)

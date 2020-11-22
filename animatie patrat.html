@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+<canvas style="border:5px solid black" id="canvas1" width=500 height=500> </canvas>
+
+<script>
+	var canvas1=document.getElementById("canvas1");
+	var context1=canvas1.getContext("2d");
+	
+	var mousepos={x:10,y:10};//se actualizeaza la miscare mouse in animatie
+	var desen={x:10,y:10};
+	var pozitieinpatrat={x:0,y:0} //se actualiz la mousedown
+	var W=canvas1.clientWidth;
+	var H=canvas1.clientHeight;
+	var anim=true;
+	
+
+	function actualizeazamouse(e)
+	{
+			pozitiecanvas=canvas1.getBoundingClientRect();
+			mousepos.x=e.clientX-pozitiecanvas.x;
+			mousepos.y=e.clientY-pozitiecanvas.y;
+	}
+	
+	canvas1.onmousemove=function (e){
+		if (anim) {
+			actualizeazamouse(e);
+		}
+	}
+	
+	canvas1.onmousedown=function (e){
+		actualizeazamouse(e);
+		if (e.button==0&&mousepos.x>desen.x&&mousepos.x<desen.x+40
+		&&mousepos.y>desen.y&&mousepos.y<desen.y+40)
+		{
+			anim=true;
+			pozitieinpatrat.x=mousepos.x-desen.x;
+			pozitieinpatrat.y=mousepos.y-desen.y;
+		}
+	}
+	
+	canvas1.onmouseup=function (e) {anim=false;}
+	
+	function deseneaza()
+	{
+		if (anim)
+		{
+			desen.x=mousepos.x-pozitieinpatrat.x;
+			desen.y=mousepos.y-pozitieinpatrat.y;
+			context1.clearRect(0,0,W,H);
+			context1.fillStyle="#F00";
+			context1.fillRect(desen.x,desen.y,40,40);
+		}
+	}
+	
+	deseneaza();
+	anim=false;
+	setInterval(deseneaza,30);
+	
+	
+</script>
+
+</body>
+
+</html>

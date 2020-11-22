@@ -1,0 +1,8 @@
+din cod din javascript sa vedem cum desenam un obiect
+cum scriem text in acel obiect
+cum procesam pixelii din acel obiect dupa ce am incarcat o imagine
+
+-----
+cum transformam imaginea din color in alb negru
+cum adaugam luminozitate
+cum crestem culoarea pe unul dintre canale (rosu, verde, albastru)

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link rel="stylesheet" href="fisierul1.css">	
+	
+	<script>
+	function deseneaza()
+	{
+	var canvas=document.getElementById("canvas1");
+	var context=canvas.getContext ("2d");
+	
+	context.fillStyle="#4060FF";
+	context.shadowColor="#FF4050";
+	context.shadowBlur=5;
+	context.shadowOffsetX=10;
+	context.shadowOffsetY=-10;
+	
+	context.fillRect(20,20,100,50);
+	}
+	function schimb_text()
+	{
+		var heading1=document.getElementById("heading1")
+		heading1.innerHTML=2+3+" Seminar multimedia ";
+	}
+	
+	var persoana={nume:"Ionescu", prenume:"Florin", varsta:35};
+	
+	console.log(persoana.prenume);
+	console.log(persoana["varsta"]);
+	console.log(persoana.profesia);
+	
+	var pozitie=100;
+	function muta_obiect()
+	{		pozitie+=10;
+			var img1=document.getElementById("img1");
+			img1.style.left=pozitie+"px";
+
+	}
+	
+	</script>
+	
+	</head>
+
+	<body>
+	
+	<h1 id="heading1"> Multimedia </h1>
+	
+		<button type="button" id="buton2"> Apasa </button>
+	<button type="button" id="buton1"> Apasa </button>
+
+	
+	<img src="imagini/luna-imagini.jpg" width=100 height=auto id="img1" style="position:absolute">
+	
+	<img src= "imagini/noapte.jpg" width=100 height=auto>
+	
+	
+	<a href="http://www.instagram.com"> link ase </a>
+	
+	<table >
+		<tr>
+			<td > Celula 1.1 </td>
+			<td > Celula 1.2 </td>
+			<td > Celula 1.3 </td>			
+		</tr>
+		<tr>
+			<td> Celula 2.1 </td>
+			<td> Celula 2.2 </td>
+			<td> Celula 2.3 </td>			
+		</tr>
+		<tr>
+			<td> Celula 3.1 </td>
+			<td> Celula 3.2 </td>
+			<td> Celula 3.3 </td>			
+		</tr>
+		<tr>
+			<td> Celula 4.1 </td>
+			<td> Celula 4.2 </td>
+			<td> Celula 4.3 </td>			
+		</tr>		
+		<tr>
+			<td> Celula 5.1 </td>
+			<td> Celula 5.2 </td>
+			<td> Celula 5.3 </td>			
+		</tr>		
+		<!--commentarii -->
+	</table>
+
+	
+	<script>
+	
+	var buton1=document.getElementById("buton1");
+	buton1.onclick=muta_obiect;
+		var buton2=document.getElementById("buton2");
+	buton2.onclick=schimba_culori;
+	function schimba_culori()
+	{
+	var celule=document.querySelectorAll("td");
+	
+	celule.forEach (function fct(value, index, array) 
+	{	var r=Math.random()*256|0;
+		var g=Math.random()*256|0;
+		var b=Math.random()*256|0;
+		value.style.backgroundColor="rgb("+r+","+g+","+b+")";
+	})
+	}	
+	</script>
+	
+	<canvas id="canvas1" width="400" height="400">
+	
+
+	
+
+	
+	
+	</body>
+
+</html>
+

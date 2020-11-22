@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video - Procesare</title>
+</head>
+<body>
+
+<video id="video1" controls="controls" autoplay="autoplay">
+    <source src="media/movie.mp4" type="video/mp4" />
+	    <source src="media/movie.ogg" type="video/ogg" />
+</video>
+<br>
+<canvas id="canvasProcesare"></canvas>
+<button type="button" id="rosup" style="position: fixed; top: 500px; left: 20px; width: 20px; height: 20px; background-color:red;" >+</button>
+<button type="button" id="rosum" style="position: fixed; top: 530px; left: 20px; width: 20px; height: 20px; background-color:red;" >-</button>
+<button type="button" id="albastrup" style="position: fixed; top: 500px; left: 60px; width: 20px; height: 20px; background-color:blue;" >+</button>
+<button type="button" id="albastrum" style="position: fixed; top: 530px; left: 60px; width: 20px; height: 20px; background-color:blue;" >-</button>
+
+<button type="button"id="play" style="position: fixed; top: 560px; left: 20px; width: 20px; height: 20px; background-color:green;" >Play</button>
+<button type="button" id="stop" style="position: fixed; top: 560px; left: 60px; width: 20px; height: 20px; background-color:green;" >Stop</button>
+<script type="text/javascript">
+	
+	var video=document.getElementById("video1");
+	
+	var canvas=document.getElementById("canvasProcesare");
+	var context=canvas.getContext("2d");
+	
+	var vr=0;vb=0;
+	
+	document.getElementById("rosup").onclick=function()
+	{
+		if (vr<200) vr+=10;
+	}
+	document.getElementById("rosum").onclick=function()
+	{
+		if (vr>10) vr-=10;
+	}
+
+	document.getElementById("albastrup").onclick=function()
+	{
+		if (vb<200) vb+=10;
+	}
+	document.getElementById("albastrum").onclick=function()
+	{
+		if (vb>10) vb-=10;
+	}
+	
+	document.getElementById("play").onclick=function()
+	{video.play();}
+	document.getElementById("stop").onclick=function()
+	{video.pause();}
+	
+	function deseneaza()
+	{
+		var H=canvas.height=video.clientHeight;
+		var W=canvas.width=video.clientWidth;
+		
+		context.drawImage (video,0,0,W,H);
+		
+		var imageData=context.getImageData(0,0,W,H);
+		var pixels=imageData.data;
+		
+		for (var y=0;y<H;y++)
+			for (var x=0;x<W;x++)
+			{
+				var index=(y*W+x)*4; 
+				if (y<30){
+				var medie=(pixels[index]+pixels[index+1]+pixels[index+2])/3;
+				pixels[index]=medie;
+				pixels[index+1]=medie;
+				pixels[index+2]=medie;
+				}
+				else{
+				pixels[index]+=vr;
+				pixels[index+2]+=vb;
+				}
+			}
+		
+		context.putImageData(imageData,0,0);
+		context.font="bold 16px sans-serif";
+		context.fillStyle="white";
+		context.fillText("Pozitie: "+ video.currentTime.toFixed(1)+"s",10,20);
+		
+	}
+	
+	window.setInterval(deseneaza,30);
+
+
+
+</script>    
+</body>
+</html>

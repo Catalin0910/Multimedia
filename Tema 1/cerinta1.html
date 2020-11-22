@@ -34,8 +34,8 @@
         <p>Pentru a aduga randuri noi in tabel apasa butonul!!!</p>
         <table id="tabel1">
             <tr>
-                <td>tabel 1.1</td>
-                <td>tabel 1.2</td>
+                <td id="celula1">tabel 1.1</td>
+                <td id='cel2'>tabel 1.2</td>
             </tr>
             <tr>
                 <td>tabel 2.1</td>
@@ -49,6 +49,8 @@
         <br>
         <div class="d">
             <button class ="butonel" type="button" onclick="myFunction()">Haide, apasă-mă</button>
+            <button id="btn" onclick="poza()">Bag pozaa</button>
+            <button id="butonel" onclick="coloreaza()">coloreaaza rand</button>
         </div>
         
         <script>
@@ -57,10 +59,30 @@
             var row = table.insertRow(0);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
-            cell1.innerHTML = "Nou 1";
-            cell2.innerHTML = "Nou 2";
+            cell1.innerHTML = "Nou";
+            cell2.innerHTML = "Nou";
             }
-
+            function poza() {
+                let img = document.createElement("img");
+                img.src="https://www.w3schools.com/images/picture.jpg";
+                //document.body.append(img);
+                let cel1 = document.getElementById('celula1');
+                cel1.append(img );
+            }
+            function coloreaza() {
+                var a = document.querySelectorAll("td");
+                a[0].style.color="red";
+                a[1].style.color="red";
+                for(let i=0;i<a.length;i++)
+                {
+                    var r = Math.random()*256|0;
+                    var g = Math.random()*256|0;
+                    var b = Math.random()*256|0;
+                    var medie = r*0.3 + g*0.5+ b*0.5;
+                    //a[i].style.color="rgb("+r+","+g+","+b+")"; //"rgb(7,10,100)"
+                    a[i].style.color = "rgb("+medie+","+medie+","+medie+")";
+                }
+            }
         </script>
     </body>
 </html>

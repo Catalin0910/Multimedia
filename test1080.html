@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+	<link href="1080.css" rel="stylesheet">
+	</head>
+	<body>
+		<h1 class="G1080">Multimedia </h1>
+		<h1 id="headingul1"> Seminar </h1>
+		<p class="G1080"> Continut seminar </p> 
+		<a href="http://www.ase.ro"> LINK ASE </a>
+		<button type="button" id="butonul1"> Schimba heading </button>
+		<button type="button" id="butonul2"> Creaza lista </button>
+		<p id="p1"></p>
+		<script>
+		
+		var y=document.getElementById("butonul1");
+	
+		y.addEventListener("click",schimba_heading);
+		
+		
+		function schimba_heading ()
+		{
+		var x=document.getElementById("headingul1");
+		x.innerHTML="Seminar multimedia";
+		}
+		
+		function schimba_culori()
+		{
+			var celule=document.querySelectorAll("td:nth-child(2n)");
+
+			celule.forEach(schimba);
+
+			function schimba(value)
+			{
+				var r=Math.random()*256|0;
+				var g=Math.random()*256|0;				
+				var b=Math.random()*256|0;				
+				value.style.backgroundColor="rgb("+r+","+g+","+b+")";
+			}
+		}
+		
+
+			var persoana= { nume:"Ionescu",
+			prenume:"Florin",
+			varsta:25,
+			complet: function () {return this.nume+" "+this.prenume+" are varsta "+this.varsta;}
+			}
+			var autoturisme=["Vw", "Tesla", "Dacia"];
+			autoturisme.push ("Renault");
+			
+			var lista=persoana.complet()+"<ul>";
+			
+		function creaza_lista()
+		{			
+			autoturisme.forEach(functiamea);
+			
+			function functiamea(value,index,vectorul)
+			{
+				lista+="<li>"+value+"</li>";
+			}
+			
+			lista+="</ul>";	
+			document.getElementById("p1").innerHTML=lista;
+		}		
+		
+		function test()
+		{
+			alert(2+3+"Seminar ");
+			console.log("Seminar "+2+3);
+		}
+		
+		document.getElementById("butonul2").onclick=schimba_culori;
+		
+		</script>
+	<img src="imagini/luna-imagini.jpg" >
+	
+	<table>
+		<tr>
+			<td> celula 1 </td>
+			<td> celula 2 </td>
+			<td> celula 3 </td>
+			<td> celula 4 </td>
+			<td> celula 5 </td>
+		</tr>
+		<tr>
+			<td> celula 1 </td>
+			<td> celula 2 </td>
+			<td> celula 3 </td>
+			<td> celula 4 </td>
+			<td> celula 5 </td>
+		</tr>	
+		<tr>
+			<td> celula 1 </td>
+			<td> celula 2 </td>
+			<td> celula 3 </td>
+			<td> celula 4 </td>
+			<td> celula 5 </td>
+		</tr>
+		<tr>
+			<td> celula 1 </td>
+			<td> celula 2 </td>
+			<td> celula 3 </td>
+			<td> celula 4 </td>
+			<td> celula 5 </td>
+		</tr>
+		<tr>
+			<td> celula 1 </td>
+			<td> celula 2 </td>
+			<td> celula 3 </td>
+			<td> celula 4 </td>
+			<td> celula 5 </td>
+		</tr>		
+	</table>
+	
+		
+	</body>
+</html>

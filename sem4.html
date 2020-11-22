@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+<canvas style="border:5px solid black" id="canvas1" width=500 height=500> </canvas>
+
+<script>
+	var canvas1=document.getElementById("canvas1");
+	var context1=canvas1.getContext("2d");
+	var x=10;
+	var y=10;
+	var sensx=1;
+	var sensy=1;
+	var pasx=7;
+	var pasy=3;
+	var W=canvas1.clientWidth;
+	var H=canvas1.clientHeight;
+	var interval=50;
+	var timer1;
+	function deseneaza()
+	{
+		if (x<0||x+40>W) sensx*=-1;
+		if (y<0||y+40>H) sensy*=-1;
+		x=x+pasx*sensx;
+		y=y+pasy*sensy;
+		context1.clearRect(0,0,W,H);
+		context1.fillStyle = "#f00"; 
+		context1.fillRect(x,y,40,40);
+	}
+	timer1=setInterval(deseneaza,interval);
+	
+	canvas1.onmousedown= function (e)
+	{
+		if (e.button==0&&interval>10)
+		{
+		clearInterval (timer1);
+		interval-=10;
+		timer1=setInterval(deseneaza,interval);
+		}
+		if (e.button==2)
+		{
+		clearInterval (timer1);
+		interval+=10;
+		timer1=setInterval(deseneaza,interval);
+		}	
+	}
+	canvas1.oncontextmenu=function (){return false;}
+	
+	
+	
+</script>
+
+</body>
+
+</html>

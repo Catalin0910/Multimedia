@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+<canvas style="border:5px solid black"id="canvas1" width=500 height=500> </canvas>
+
+<script>
+	var canvas1=document.getElementById("canvas1");
+	var context1=canvas1.getContext("2d");
+    var mousepos={x: 10,y: 10}
+    var desen={x: 10,y: 10}
+    var pozitieinpatrat={x: 0,y: 0}
+    var W=canvas1.clientWidth;
+    var H=canvas1.clientHeight;
+    var anim=0;
+    var vector=[]
+    poz=0
+
+    canvas1.oncontextmenu= function(e){        e.preventDefault();}
+    canvas1.onmousedown =function(e)
+    {
+
+        if(e.button===0)
+        {
+            pozitie=canvas1.getBoundingClientRect();
+        if(e.clientX-pozitie.x>desen.x && e.clientX-pozitie.x<desen.x+40 && e.clientY-pozitie.y>desen.y && e.clientY-pozitie.y<desen.y+40)
+        {   
+            mousepos.x=e.clientX-pozitie.x
+            mousepos.y=e.clientY-pozitie.y
+            if(e.button==0 && mousepos.x>desen.x && mousepos.x<desen.x+40 && mousepos.y>desen.y && mousepos.y<desen.y+40)
+        {
+            anim=1
+            pozitieinpatrat.x=mousepos.x-desen.x
+            pozitieinpatrat.y=mousepos.y-desen.y
+        }
+        }
+        }
+        if(e.button===2)
+        {
+            anim=2
+            poz=0
+        }
+    }
+
+    function deseneaza()
+    {
+        if(anim===1)
+        {
+            desen.x=mousepos.x-pozitieinpatrat.x
+            desen.y=mousepos.y-pozitieinpatrat.y
+            
+        }
+        context1.clearRect(0,0,W,H)
+            context1.fillStyle="#F00"
+            context1.fillRect(desen.x,desen.y,40,40)
+        if(anim===1)
+            vector.push({x: desen.x ,y:desen.y})
+        if(anim===2 && poz < vector.length)
+        {
+            desen.x=vector[poz].x
+            desen.y=vector[poz].y
+            if(poz<vector.length-1)
+                {
+                    poz++;
+                }
+        }    
+    }
+    window.setInterval(deseneaza,20); 
+
+    canvas1.onmousemove = function(e)
+    {
+        if(anim===1)
+        {
+            pozitie=canvas1.getBoundingClientRect();
+            mousepos.x=e.clientX-pozitie.x
+            mousepos.y=e.clientY-pozitie.y
+        }
+
+    }
+    canvas1.onmouseup=function()
+    {
+        if(anim===1)
+            anim=0
+    }
+</script>
+
+</body>
+
+</html>

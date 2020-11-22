@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<canvas id="canvas1" width="300" height="300" style="border: 2px solid blue"> 
+
+	<script>
+	var canvas=document.getElementById("canvas1");	
+	var context=canvas.getContext("2d");
+
+	context.shadowBlur=5;
+	context.shadowColor="#0000FF";
+	
+	context.shadowOffsetX=-10;
+	context.shadowOffsetY=10;
+	
+	context.fillStyle="#F00010";
+	context.fillRect(20,20,50,80);
+
+	context.shadowBlur=5;
+	context.shadowColor="#000000";
+	
+	context.shadowOffsetX=10;
+	context.shadowOffsetY=-10;
+
+	context.fillStyle="#1000F0";
+	context.fillRect (100,100, 60,80);
+
+	
+	</script>
+
+</body>
+</html>

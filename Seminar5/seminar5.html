@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1> Seminar 5 </h1>
+        <canvas id="canvas" width="500px" height="400px" style="border:2.1px solid #000000;"></canvas>
+        <script>
+                var canvas1 = document.getElementById("canvas");
+                var context = canvas1.getContext ("2d");
+                let x = 50;
+                let y = 50;
+
+                let xChange = 1;
+                let yChange = 1;
+
+                function blob(x_loc, y_loc, size, color){
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.beginPath();
+                context.arc(x_loc, y_loc,size,0,2*Math.PI);
+                context.fillStyle = color;
+                context.fill();
+                context.stroke();
+                }
+
+                setInterval(function(){
+                blob(x, y, 25,"red")
+                x += xChange;
+                y += yChange;
+
+                if(x >= canvas.width || x <= 0){
+                    xChange *= -1
+                }
+
+                if(y >= canvas.height || y <= 0){
+                    yChange *= -1
+                }
+
+                },10)
+
+
+        </script>
+
+            <canvas id="canvas1" width="400px" height="400px" style="border:2.1px solid #000000;"></canvas>
+            <script>
+                var canvas1 = document.getElementById("canvas1");
+                var ctx =  canvas1.getContext ("2d");
+               
+
+                var mousepos={x:10, y:10}; //x si y ale mouseului le actualizam in mousemove;
+                var desen = {x:10, y:10}; //x si y la care desenam patratul
+                var pozititeInPatrat = {x:0, y:0}; //x si y in cadrul patratului, le actualizam la mouse down
+                var W =  canvas1.clientWidth;
+                var H = canvas1.clientHeight;
+                var anim = false;
+
+                canvas1.onmousedown = function(e) {
+                    pozitie =  canvas1.getBoundingClientRect();
+                    mousepos.x = e.clientX - pozitie.x;
+                    mousepos.y = e.clientY - pozitie.y;
+                    if(e.button == 0 && mousepos.x > desen.x && mousepos.x < desen.x+40 && mousepos.y > desen.y
+                    && mousepos.y < desen.y+40) {
+                        anim =false;
+                        pozititeInPatrat.x = mousepos.x - desen.x;
+                        pozititeInPatrat.y = mousepos.y - desen.y;
+                        console.log("coordonatele mouse in viewport: " + e.clientX+ "" +e.clientY);
+                        console.log("coordonatele mouse in canvas sunt la pozitiile: " + mousepos.x + " " + mousepos.y);
+                        console.log("Patratul este desenat la coordonatele: " +desen.x+ " " + desen.y);
+                        console.log("In patrat s-a dat click la distantele: " +pozititeInPatrat.x + " " + pozititeInPatrat.y);
+                    }
+                }
+
+                function deseneaza() {
+                    desen.x = mousepos.x - pozititeInPatrat.x;
+                    desen.y = mousepos.y - pozititeInPatrat.y;
+                    ctx.clearRect(0,0,W,H);
+                    ctx.fillStyle="#F00";
+                    ctx.fillRect(desen.x, desen.y, 40, 40);
+                }
+                window.setInterval(deseneaza, 20);
+
+                canvas1.onmousemove = function(e) {
+                    if(anim) {
+                        pozitie =  canvas1. getBoundingClientRect();
+                        mousepos.x = e.clientX-pozitie.x;
+                        mousepos.y = e.clientY-pozitie.y;
+                    }
+                }
+                canvas1.onmouseup = function() {
+                    anim = false;
+                }
+            </script>
+    </body>
+</html>

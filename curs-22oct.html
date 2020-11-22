@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+	</head>
+	<body>
+		<canvas id="canvas1" width=300 height=300></canvas>
+		<button type="button" id="buton1">IMG=>Canvas</button>
+		<button type="button" id="buton2"> Canvas=>imagine</button>
+		<script>
+		var theta = 0.3;
+		
+		function rotire (context, x,y)
+		{
+			ct= Math.cos(theta);
+			st=Math.sin(theta);
+			context.transform (ct,-st,st,ct,-x*ct-y*st+x, x*st-y*ct+y);
+			
+			context.clearRect(0,0,300,300);
+			context.fillStyle="red";
+			context.fillRect(130,130,40,40);					
+		}
+		var canvas1=document.getElementById("canvas1");
+		var context=canvas1.getContext ("2d");
+		context.fillStyle="#202020";
+		context.fillRect(0,0,300,300);
+		rotire(context,150,150);
+		
+		canvas1.addEventListener("click", function (){theta+=0.1; rotire (context,150,150);});
+		
+		function incarcaimg()
+		{
+			var img= new Image();
+			img.src="img1.jpg";
+			context1.drawImage(img,0,0);
+		
+		}
+		document.getElementById("buton1").addEventListener("click",incarcaimg);
+		
+		
+		</script>
+			
+	
+	</body>
+</html>

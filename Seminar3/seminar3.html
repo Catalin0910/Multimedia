@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src = "seminar3.js"></script>
+    <title>Seminar3</title>
+    </head>>
+    <body>
+        <img id="poza" src="https://www.w3schools.com/images/picture.jpg" onclick="schimbapoza()"/>
+        <script>
+             var img = document.getElementById("poza");
+            img.addEventListener("mouseover", function (){bigImg(this)});
+            img.addEventListener("mouseout", function () {small()});
+            //img.onmouseover = function(){bigImg()};
+        </script>
+        <h1 id="id">Multimedia</h1>
+        <button id="btn" onclick="functie_pe_buton()">Schimba text</button>
+        <button id="button" onclick="calcul()">Calculeaza</button>
+        <button id="button1" onclick="schimbapoza()">Schimba poza</button>
+        <button id="butonel" onclick="genereaza()">Genereaza</button>
+       
+    </body>
+</html>
