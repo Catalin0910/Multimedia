@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            button#buton1
+            {
+                width:150px;
+                height:150px;
+                background-color: red;
+                /*transition: background-color 10s;*/
+                transition: transform 5s;
+                /*transform: rotate(20deg);*/
+            }
+
+          
+        </style>
+    </head>
+    <body>
+        <button id="buton1"></button>
+        <button id="RX">Rotatie X</button>
+        <button id="RY">Rotatie Y</button>
+        <button id="RZ">Rotatie Z</button>
+
+        <script>
+            var b=document.getElementById("buton1");
+                b.onclick=function (e)
+                {
+                    b.style.backgroundColor="blue";
+                }
+                
+            var unghix=0;
+            var unghiy=0;
+            var unghiz=0;
+
+            document.getElementById("RX").onclick=function()
+            {
+                unghix+=20;
+                b.style.transform="rotateX("+unghix+"deg)";
+            }
+            document.getElementById("RY").onclick=function()
+            {
+                unghiy+=20;
+                b.style.transform="rotateY("+unghix+"deg)";
+            }
+            document.getElementById("RZ").onclick=function()
+            {
+                unghiz+=20;
+                b.style.transform="rotateZ("+unghix+"deg)";
+            }
+               
+        </script>
+    </body>
+
+    
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Proiect Multimedia - Tema 1 1079 Cebuc Gabriel-Catalin</title>
+        <link rel="stylesheet" href="1_1079_CEBUC_Gabriel-Catalin.css">
+        
+    </head>
+    <body>
+        <div id="controls">
+            <div id="clear" class="container">
+                <p><input type="button" id="clear-canvas" value="Sterge tot"></p>
+                <!-- <input type="file" id="image-file" value="Alege fisier"> -->
+                <p class="name">Setari</p>
+            </div>
+            <div id="size" class="container">
+                <p><label>Width</label><input type="number" id="canvas-width" value="850" min="0"></p>
+                <label>Height</label><input type="number" id="canvas-height" value="500" min="0">
+                <p class="name">Dimensiune</p>
+            </div>
+            <div id="mouse-position" class="container">
+                <p><label>MouseX: </label><label id="mouseX"></label></p>
+                <p><label>MouseY: </label><label id="mouseY"></label></p>
+                <p class="name">Pozitia mouseului</p>
+            </div>
+            <div id="tools" class="container">
+                <div id="tool-images">
+                <img id="pencil" src="./media/pngtree-vector-pencil-icon-png-image_313118.jpg" alt="Pencil">
+                <img id="eraser" src="./media/download.jpeg" alt="Guma">
+                </div>
+                <p class="name">Unelte</p>
+            </div>
+            <div id="tool-size" class="container">
+                <details open>
+                    <summary>Marime</summary>
+                    <ul>
+                        <li id="small">Mica</li>
+                        <li id="middle">Medie</li>
+                        <li id="big">Mare</li>
+                    </ul>
+                </details>
+               <p class="name">Marime creion</p>
+            </div>
+            <div id="color" class="container">
+                <input type="color">
+                <p class="name">Alege culoarea</p>
+            </div>
+            <div id="save" class="container">
+                <p><input type="button" id="save-canvas" value="Salvare desen" onclick="save_image()"></p>
+                <button>Schimba bg</button>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="canvas">
+            <canvas id="spate-canvas" width="850" height="500"></canvas>
+            <canvas id="fata-canvas" width="850" height="500"></canvas>
+        </div>
+        <div id="propietati">
+            <p id="propoprietati-titlu">Imagine</p>
+            <p><label>Width: </label><input id="img-width" type="number" min="0"></p>
+            <p><label>Height: </label><input id="img-height" type="number" min="0"></p>
+        </div>
+        <script src="1_1079_CEBUC_Gabriel-Catalin.js"></script>
+    </body>
+</html>

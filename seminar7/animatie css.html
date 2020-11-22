@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+button {
+  width: 100px;
+  height:50px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 5s;
+    position: relative;
+	    animation-iteration-count: infinite;
+		animation-timing-function: linear 1s infinite running slidein;
+}
+
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  100% {background-color:red; left:1200px; top:0px;}
+}
+</style>
+</head>
+<body>
+<button id="buton1"></button>
+<script>
+	var b=document.getElementById("buton1");
+	b.onmouseenter=function (e){b.style.animationDirection="reverse";}
+	b.onmouseleave=function (e){b.style.animationDirection="normal";}	
+	</script>
+</body>
+</html>

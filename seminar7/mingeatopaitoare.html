@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <style>
+        body {
+            background: linear-gradient(to right, lightblue, whitesmoke, lightblue);
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 25%;
+        }
+
+        .circle {
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            border-radius: 2em;
+        }
+
+        .circle:nth-child(1) {
+            background: #F46036;
+            animation: PopUp 5s cubic-bezier(.88, .09, .08, .97);
+
+        }
+
+        .circle:nth-child(2) {
+            background: #00A6A6;
+            animation-delay: .25s;
+        }
+
+        .circle:nth-child(3) {
+            background: #E5D942;
+            animation-delay: .5s;
+        }
+
+        .circle:nth-child(4) {
+            background: #2F427A;
+            animation-delay: .75s;
+        }
+
+        .panel {
+            width: 300px;
+            height: 2px;
+            border-radius: 2em;
+            background: rgb(29, 27, 5);
+            margin: auto;
+            margin: auto;
+        }
+
+        @keyframes PopUp {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-255px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+    <div class="container">
+        <div id="c1" class="circle"></div>
+        <div id="c2" class="circle"></div>
+        <div id="c3" class="circle"></div>
+        <div id="c4" class="circle"></div>
+
+        <div class="panel"></div>
+    </div>
+
+    <script>
+        var c1 = document.getElementById("c1");
+        c1.onanimationend = function () {
+            document.getElementById("c2").style.animation = "PopUp 5s cubic-bezier(.88,.09,.08,.97)"
+            document.getElementById("c1").style.animation = "none"
+        }
+
+        var c2 = document.getElementById("c2");
+        c2.onanimationend = function () {
+            document.getElementById("c3").style.animation = "PopUp 5s cubic-bezier(.88,.09,.08,.97)"
+            document.getElementById("c2").style.animation = "none"
+        }
+
+        var c3 = document.getElementById("c3");
+        c3.onanimationend = function () {
+            document.getElementById("c4").style.animation = "PopUp 5s cubic-bezier(.88,.09,.08,.97)"
+            document.getElementById("c3").style.animation = "none"
+        }
+
+        var c4 = document.getElementById("c4");
+        c4.onanimationend = function () {
+            document.getElementById("c1").style.animation = "PopUp 5s cubic-bezier(.88,.09,.08,.97)"
+            document.getElementById("c4").style.animation = "none"
+        }
+    </script>
+</body>
+
+</html>

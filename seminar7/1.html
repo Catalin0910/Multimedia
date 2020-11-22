@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            button#buton1
+            {
+                width:250px;
+                height:150px;
+                background-color: red;
+                animation-duration: 10s;
+                position: relative;
+                animation-name:test1;
+                /* animation-timing-function: linear; */
+                /*animation-timing-function: steps(5, start);*/
+                /*animation-timing-function: cubic-bezier(.05, .99, .45, 1.87);*/
+                /*animation-timing-function: cubic-bezier(.8, -0.65, .64, .16);*/
+                /*animation-timing-function: cubic-bezier(.6, 1.25, .47, .)*/
+                animation-iteration-count: 1;
+                /*animation-direction: alternate-reverse;*/
+            }
+
+            @keyframes test1 
+            {
+                0%{background-color: red; left:250px;top:150px}
+                /* 80%{background-color: red;left:250px;top:0px} */
+                /*100%{background-color: blue;left:400px;top:350px} greseala interesanta:))))*/ 
+                /*100%{background-color: blue;left:0px;top:0px}*/
+                100%{background-color: blue;width:400px;height: 350px}
+
+            }
+        </style>
+    </head>
+    <body>
+        <button id="buton1"></button>
+
+        <script>
+                var b=document.getElementById("buton1");
+                b.onmouseenter=function (e)
+                {
+                    b.style.animation.animationDirection="reverse";
+                }
+                
+                b.onmouseleave=function (e)
+                {
+                    b.style.animation.animationDirection="normal";  //???????????????????????????????nu merge
+                }
+        </script>
+    </body>
+
+    
+</html>
+
+
+<!-- function rosuplus(){
+
+var c = document.getElementById("canvasf");
+var ctx = c.getContext("2d");
+var img = document.getElementById("pozaf");
+img.crossOrigin=''
+
+var style = getComputedStyle(img, null);
+
+
+ctx.drawImage(img, 0, 0);
+
+var imgData = ctx.getImageData(0, 0, parseFloat(style.width),parseFloat( style.height));
+
+var i;
+indice=indice+0.1
+for (i = 0; i < imgData.data.length; i +=4) { imgData.data[i]=imgData.data[i]*indice; } ctx.putImageData(imgData, 0, 0);
+    } -->

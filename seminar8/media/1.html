@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Seminar multimedia 8</title>
+</head>
+
+<body>
+    <div class="anim-container">
+        <img id='imagine' src="frame_000.gif">
+    </div>
+</body>
+<script>
+    window.onload = () => {
+        let arrayImg = [];
+        for (let i = 0; i <= 43; i++)
+            if (i > 9) {
+                arrayImg.push(`frame_0${i}.gif`);
+            } else {
+                arrayImg.push(`frame_00${i}.gif`);
+            }
+        let counter = 0;
+        setInterval(function () {
+            if (counter >= 43)
+                counter = 0;
+            document.getElementById('imagine').src = arrayImg[counter];
+            counter++;
+        }, 80)
+
+        const element = document.getElementById('anim-container');
+        let start;
+        function rotate(timestamp){
+            if(start == undefined){
+                start = timestamp;
+            }
+            const elapsed = timestamp - start;
+            if(elapsed < 4000) {
+                window.requestAnimationFrame(step);
+            }
+        }
+        window.requestAnimationFrame(step);s
+    }
+</script>
+</html>

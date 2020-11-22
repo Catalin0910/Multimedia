@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Film</title>
+        <style type="text/css">
+        body{
+            background-color: Black;
+        }
+        canvas {
+            position: absolute;
+            top: 50%;
+            margin-top: -200px;
+            left: 50%;
+            margin-left: -200px;
+        }
+
+        </style>
+    </head>
+    <body>
+        <button type="button" id="rosup" 
+            style="position: fixed; top: 500px; left: 20px; width: 20px; height: 20px; background-color:red;">+</button>
+        <button type="button" id="rosum"
+            style="position: fixed; top: 530px; left: 20px; width: 20px; height: 20px; background-color:red;">-</button>
+        <button type="button" id="albastrup"
+            style="position: fixed; top: 500px; left: 60px; width: 20px; height: 20px; background-color:blue;">+</button>
+        <button type="button" id="albastrum"
+            style="position: fixed; top: 530px; left: 60px; width: 20px; height: 20px; background-color:blue;">-</button>
+        <button type="button" id="verdeup"
+            style="position: fixed; top: 500px; left: 100px; width: 20px; height: 20px; background-color:green;">+</button>
+        <button type="button" id="verdem"
+            style="position: fixed; top: 530px; left: 100px; width: 20px; height: 20px; background-color:green;">-</button>
+        <canvas id="film" width="400" height="400"></canvas>
+        
+        <script>
+            var canvas =  document.getElementById("film")
+            var context =  canvas.getContext("2d")
+            var vr=0, vb=0, vg=0;
+            var model = {
+                nrImagini: 44,
+                imaginiIncarcate: 0,
+                imagini: [],
+                index: 0,
+                pornit: true,
+                isReady: function() {return this.nrImagini == this.imaginiIncarcate;},
+                actualizare: function() {
+                    if(this.pornit){
+                        this.index++;
+                        if(this.index>=this.nrImagini){this.index=0;}
+                    }
+                }
+            }
+    document.getElementById("rosup").onclick = function () {
+        if (vr < 400) vr += 10;
+        console.log("creste rosu")
+    }
+    document.getElementById("rosum").onclick = function () {
+        if (vr > 10) vr -= 10;
+        console.log("scade rosu")
+    }
+
+    document.getElementById("albastrup").onclick = function () {
+        if (vb < 400) vb += 10;
+        console.log("creste albastru")
+    }
+    document.getElementById("albastrum").onclick = function () {
+        if (vb > 10) vb -= 10;
+        console.log("scade albastru")
+    }
+    document.getElementById("verdeup").onclick = function () {
+            if (vg < 400) vg += 10;
+            console.log("creste verde")
+        }
+        document.getElementById("verdem").onclick = function () {
+            if (vg > 10) vg -= 10;
+            console.log("scade verde")
+        }
+
+
+            for(var i=0;i<model.nrImagini;i++) {
+                var imagePath="frame_0";
+                if(i<10) imagePath +="0";
+                imagePath+=i.toString()+".gif";
+
+                var image =  document.createElement("img");
+                image.src=imagePath;
+                model.imagini[i] = image;
+                model.imaginiIncarcate++;
+            }
+
+            setInterval(function() {model.actualizare()}, 250);
+
+           
+            function desenare() {
+                
+                if(model.isReady) {
+                    //document.getElementById("film").getContext("2d").drawImage(model.imagini[model.index], 0, 0);
+                    var canvas = document.getElementById("film");
+                    var context = canvas.getContext("2d");
+                    var H = canvas.height
+                    var W = canvas.width
+                    context.drawImage(model.imagini[model.index], 0, 0)
+                    var imageData = context.getImageData(0,0,W,H)
+                    var pixels = imageData.data;
+
+                    for (var y = 0; y < H; y++)
+                        for (var x = 0; x < W; x++) {
+                            var index1 = (y * W + x) * 4;
+                            if (y < 0) {
+                                var medie = (pixels[index1] + pixels[index1 + 1] + pixels[index1 + 2]) / 3;
+                                pixels[index1] = medie;
+                                pixels[index1 + 1] = medie;
+                                pixels[index1 + 2] = medie;
+                                p
+                            }
+                            else {
+                                pixels[index1] += vr;
+                                pixels[index1 + 1] += vg;
+                                pixels[index1 + 2] += vb;
+                            }
+                        }
+                        context.putImageData(imageData, 0, 0);
+                }
+                    
+                requestAnimationFrame(desenare);    
+                
+            }
+            requestAnimationFrame(desenare);
+            
+
+        
+
+            document.getElementById("film").onclick = function() {
+                model.pornit =!model.pornit;
+            }
+
+            function randomOpacity() {
+                var transparenta = 0;
+                var interval = 1 * 80 + 20;
+                transparenta = Math.random() < interval;
+                console.log(transparenta);
+            }
+            
+        </script>
+    </body>
+    
